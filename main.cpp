@@ -1,36 +1,10 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <unordered_map>
+#include "util.cpp"
 
 using namespace cv;
 using namespace std;
-
-bool evaluateFrame(Mat& I, int& good, int& bad) {
-  // Accept only char type matrices and 3-channel
-  CV_Assert(I.depth() == CV_8U);
-  CV_Assert(I.channels() == 3);
-
-  unordered_map<string, int> colorFreqs;
-  MatIterator_<Vec3b> it, end;
-  for (it = I.begin<Vec3b>(), end = I.end<Vec3b>(); it != end; ++it) {
-    string pixelColor = to_string((*it)[0]) + "-" + to_string((*it)[1]) + "-" + to_string((*it)[2]);
-    colorFreqs[pixelColor] = (colorFreqs.find(pixelColor) != colorFreqs.end()) ? colorFreqs[pixelColor]+1 : 1;
-  }
-
-  int pixelCount = I.size().height * I.size().width;
-  int tolerance = (int)(pixelCount*0.75);
-
-  unordered_map<string, int>::iterator mapIt;
-
-  for (mapIt = colorFreqs.begin(); mapIt != colorFreqs.end(); ++mapIt) {
-    if (mapIt->second > tolerance) {
-      bad++;
-      return false;
-    }
-  }
-  good++;
-  return true;
-}
 
 int main(int argc, char* argv[])
 {
@@ -60,21 +34,20 @@ int main(int argc, char* argv[])
     return -1;
   }
   int numProcessed = 0;
-  int good = 0;
-  int bad = 0;
+  int framesRemoved = 0;
 
   clock_t start = clock();
 
   while (true) {
     Mat frame;
-    bool bSuccess = cap.read(frame); // read a new frame from video 
+    bool readSuccess = cap.read(frame);
 
-    if (bSuccess == false) {
+    if (readSuccess == false) {
       cout << "End of video." << endl;
       break;
     }
 
-    if (evaluateFrame(frame, good, bad)) {
+    if (util::evaluateFrame(frame, framesRemoved)) {
       video << frame;
     }
 
@@ -84,11 +57,10 @@ int main(int argc, char* argv[])
     numProcessed++;
   }
 
-  cout << "good: " << good << endl;
-  cout << "bad: " << bad << endl;
 
  double duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
  cout << "Processing finished in " << duration << " seconds." << endl;
+ cout << "Frames Removed: " << framesRemoved << endl;
  cap.release();
 
  return 0;

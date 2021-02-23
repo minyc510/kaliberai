@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/minyoung/kaliber
+CMAKE_SOURCE_DIR = /home/minyoung/kaliberai
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/minyoung/kaliber
+CMAKE_BINARY_DIR = /home/minyoung/kaliberai
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/KaliberChallenge.dir/clean
 CMakeFiles/KaliberChallenge.dir/all:
 	$(MAKE) -f CMakeFiles/KaliberChallenge.dir/build.make CMakeFiles/KaliberChallenge.dir/depend
 	$(MAKE) -f CMakeFiles/KaliberChallenge.dir/build.make CMakeFiles/KaliberChallenge.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/minyoung/kaliber/CMakeFiles --progress-num=1,2 "Built target KaliberChallenge"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/minyoung/kaliberai/CMakeFiles --progress-num=1,2 "Built target KaliberChallenge"
 .PHONY : CMakeFiles/KaliberChallenge.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/KaliberChallenge.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minyoung/kaliber/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minyoung/kaliberai/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/KaliberChallenge.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minyoung/kaliber/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minyoung/kaliberai/CMakeFiles 0
 .PHONY : CMakeFiles/KaliberChallenge.dir/rule
 
 # Convenience name for target.
