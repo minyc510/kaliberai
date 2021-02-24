@@ -32,8 +32,8 @@ int main(int argc, char* argv[])
   int fourcc = static_cast<int>(cap.get(CAP_PROP_FOURCC));
 
   VideoWriter video;
-  const string outputName = "filtered_" + fileName;
-  video.open(outputName, fourcc, 10, Size(frame_width, frame_height), true);
+  const string outputUri = "../processed-media/" + fileName;
+  video.open(outputUri, fourcc, 10, Size(frame_width, frame_height), true);
 
   if (!video.isOpened()) {
     cout  << "Could not open the output video for write: " << endl;
@@ -53,8 +53,10 @@ int main(int argc, char* argv[])
       break;
     }
 
-    if (util::evaluateFrame(frame, framesRemoved)) {
+    if (util::evaluateFrame(frame)) {
       video << frame;
+    } else {
+      framesRemoved++;
     }
 
     if (numProcessed % 5 == 0) {
