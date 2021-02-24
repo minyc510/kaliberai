@@ -8,7 +8,14 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-  VideoCapture cap("../media/input-short.mp4"); 
+  string fileName = "input-medium.mp4"; // default
+  if (argc > 1) {
+    fileName = argv[1];
+  }
+
+  const string inputUri = "../media/" + fileName;
+  cout << inputUri << endl;
+  VideoCapture cap(inputUri); 
 
   if (cap.isOpened() == false) {
     cout << "Cannot open the video file" << endl;
@@ -25,7 +32,8 @@ int main(int argc, char* argv[])
   int fourcc = static_cast<int>(cap.get(CAP_PROP_FOURCC));
 
   VideoWriter video;
-  video.open("output.mp4", fourcc, 10, Size(frame_width, frame_height), true);
+  const string outputName = "filtered_" + fileName;
+  video.open(outputName, fourcc, 10, Size(frame_width, frame_height), true);
 
   if (!video.isOpened()) {
     cout  << "Could not open the output video for write: " << endl;
@@ -55,11 +63,10 @@ int main(int argc, char* argv[])
     numProcessed++;
   }
 
+  double duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+  cout << "Processing finished in " << duration << " seconds." << endl;
+  cout << "Frames Removed: " << framesRemoved << endl;
+  cap.release();
 
- double duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
- cout << "Processing finished in " << duration << " seconds." << endl;
- cout << "Frames Removed: " << framesRemoved << endl;
- cap.release();
-
- return 0;
+  return 0;
 }
