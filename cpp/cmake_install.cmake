@@ -1,4 +1,4 @@
-# Install script for directory: /home/minyoung/kaliberai
+# Install script for directory: /home/minyoung/kaliberai/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/minyoung/kaliberai/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/minyoung/kaliberai/cpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

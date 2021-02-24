@@ -1,3 +1,0 @@
-/home/minyoung/kaliberai/CMakeFiles/rebuild_cache.dir
-/home/minyoung/kaliberai/CMakeFiles/edit_cache.dir
-/home/minyoung/kaliberai/CMakeFiles/KaliberChallenge.dir

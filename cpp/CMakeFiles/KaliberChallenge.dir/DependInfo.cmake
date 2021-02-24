@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/minyoung/kaliberai/main.cpp" "/home/minyoung/kaliberai/CMakeFiles/KaliberChallenge.dir/main.cpp.o"
+  "/home/minyoung/kaliberai/cpp/main.cpp" "/home/minyoung/kaliberai/cpp/CMakeFiles/KaliberChallenge.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

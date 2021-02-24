@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/minyoung/kaliberai/main.cpp
+/home/minyoung/kaliberai/cpp/main.cpp
 opencv2/opencv.hpp
 -
 iostream
@@ -14,9 +14,9 @@ iostream
 unordered_map
 -
 util.cpp
-/home/minyoung/kaliberai/util.cpp
+/home/minyoung/kaliberai/cpp/util.cpp
 
-/home/minyoung/kaliberai/util.cpp
+/home/minyoung/kaliberai/cpp/util.cpp
 opencv2/opencv.hpp
 -
 unordered_map

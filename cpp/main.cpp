@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-  VideoCapture cap("input-short.mp4"); 
+  VideoCapture cap("../media/input-short.mp4"); 
 
   if (cap.isOpened() == false) {
     cout << "Cannot open the video file" << endl;
@@ -22,12 +22,10 @@ int main(int argc, char* argv[])
   cout << "Frame Size: " << frame_width << " x " << frame_height << endl;
   cout << "Frames: " << cap.get(CAP_PROP_FRAME_COUNT) << endl;
 
-  Size S = Size((int) cap.get(CAP_PROP_FRAME_WIDTH),
-                (int) cap.get(CAP_PROP_FRAME_HEIGHT));
   int fourcc = static_cast<int>(cap.get(CAP_PROP_FOURCC));
 
   VideoWriter video;
-  video.open("output.mp4", fourcc, fps, Size(frame_width, frame_height), true);
+  video.open("output.mp4", fourcc, 10, Size(frame_width, frame_height), true);
 
   if (!video.isOpened()) {
     cout  << "Could not open the output video for write: " << endl;
