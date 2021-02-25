@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
     cout  << "Could not open the output video for write: " << endl;
     return -1;
   }
+  // Using numProcessed so I can view progress when running this
   int numProcessed = 0;
   int framesRemoved = 0;
 
