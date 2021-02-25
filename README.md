@@ -51,6 +51,8 @@ Anyway so that's the full story. I've never worked with opencv or Flask before a
 
 `cd cpp`
 
+`cmake .`
+
 `make`
 
 `./KaliberChallenge input-short.mp4`
