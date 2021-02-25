@@ -6,9 +6,8 @@
 using namespace cv;
 using namespace std;
 
-int main(int argc, char* argv[])
-{
-  string fileName = "input-medium.mp4"; // default
+int main(int argc, char* argv[]) {
+  string fileName = "input-short-segment.mp4"; // default
   if (argc > 1) {
     fileName = argv[1];
   }
@@ -21,7 +20,7 @@ int main(int argc, char* argv[])
     cout << "Cannot open the video file" << endl;
     return -1;
   }
-
+  
   int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
   int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
   double fps = cap.get(CAP_PROP_FPS); 
@@ -47,23 +46,20 @@ int main(int argc, char* argv[])
   while (true) {
     Mat frame;
     bool readSuccess = cap.read(frame);
+    if (!readSuccess) { break; }
 
-    if (readSuccess == false) {
-      cout << "End of video." << endl;
-      break;
-    }
-    
     if (util::evaluateFrame(frame)) {
       video << frame;
     } else {
       framesRemoved++;
     }
 
+    numProcessed++;
     if (numProcessed % 5 == 0) {
       cout << numProcessed << endl;
     }
-    numProcessed++;
   }
+
 
   double duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
   cout << "Processing finished in " << duration << " seconds." << endl;
