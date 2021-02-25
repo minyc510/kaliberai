@@ -65,6 +65,7 @@ int main(int argc, char* argv[]) {
   cout << "Processing finished in " << duration << " seconds." << endl;
   cout << "Frames Removed: " << framesRemoved << endl;
   cap.release();
+  video.release();
 
   return 0;
 }
