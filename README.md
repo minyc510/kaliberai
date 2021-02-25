@@ -16,7 +16,6 @@ Some logging to the python server would definitely have been nice.
 
 I spent the most time on the C++ portion as that's what I thought was most interesting (despite the prompt saying to focus on the python). I felt like my whole thought process was worth 
 explaining. Sorry for the long text.
----
 
 Initially, I started by iterating each frame of the input video, and simply counting the frequency of each color, and then taking the maximum frequency and seeing if it exceeded 75% of the total pixel count for that frame. If it did, then exclude it in the output video.
 
