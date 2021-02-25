@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
       cout << "End of video." << endl;
       break;
     }
-
+    
     if (util::evaluateFrame(frame)) {
       video << frame;
     } else {
